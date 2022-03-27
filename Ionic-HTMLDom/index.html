@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Ionic Demo</title>
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+		/>
+        
+	</head>
+	<body>
+        <ion-text class="ion-text-center">
+            <h2>Todo List</h2>
+        </ion-text>
+        <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-input placeholder="Add todo" id="addInput"></ion-input>
+
+            </ion-col>
+            <ion-col size="3">
+                <ion-button color="primary" size="small" id="addBtn">Add</ion-button>
+            </ion-col>
+        </ion-row>
+        </ion-grid>
+		<ion-list id="listTodo">
+			
+		</ion-list>
+        <ion-grid>
+            <script src="./index.js" type="text/javascript"></script>
+	</body>
+</html>
