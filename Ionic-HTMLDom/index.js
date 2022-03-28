@@ -1,8 +1,8 @@
 let addInput, addButton, listTodo;
 
 const data = [
-	{ id: 1, content: "Di choi" },
-	{ id: 2, content: "Di hoc" },
+	{ id: 1, content: "Di choi", isChecked: false },
+	{ id: 2, content: "Di hoc", isChecked: true },
 ];
 
 window.onload = () => {
@@ -19,10 +19,21 @@ function onAddToDo() {
 	if (!addInput.value) {
 		return;
 	}
-	const newInput = { id: data.length + 1, content: addInput.value };
+	const newInput = {
+		id: data.length + 1,
+		content: addInput.value,
+		isChecked: false,
+	};
 	data.push(newInput);
 	addInput.value = "";
 	renderList(data);
+}
+
+function onChecked(id) {
+	const findById = data.find((item) => {
+		return item.id === id;
+	});
+	findById.isChecked = !findById.isChecked;
 }
 
 function onDeleteToDo(e) {
@@ -40,9 +51,17 @@ function renderList(list) {
 	const newList = list
 		.map((item) => {
 			return `	<ion-item id="itemId">
-                            <ion-checkbox color="dark slot="end" checked="true"></ion-checkbox>
-                            <ion-label>${item.content}</ion-label>
-                            <ion-button color="dark" id="${item.id}">X</ion-button>
+                            <ion-checkbox color="dark" onclick=onChecked(${
+							item.id
+						}); checked="${item.isChecked}"></ion-checkbox>
+                            <ion-label style=${
+							item.isChecked
+								? "text-decoration:line-through"
+								: "text-decoration:none"
+						}>${item.content}</ion-label>
+                            <ion-button color="dark" id="${
+							item.id
+						}">X</ion-button>
 			            </ion-item>`;
 		})
 		.join("");
