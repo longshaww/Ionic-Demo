@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
 	IonContent,
 	IonHeader,
@@ -14,15 +14,12 @@ import {
 	IonRow,
 	IonCol,
 	IonCheckbox,
+	IonButtons,
+	IonMenuButton,
 } from "@ionic/react";
 
 import "./todo.css";
-
-interface dataType {
-	id: number;
-	content: string;
-	isChecked: Boolean;
-}
+import { dataType } from "../interface/interface";
 
 const Todo: React.FC = () => {
 	const [text, setText] = useState<string>("");
@@ -70,7 +67,10 @@ const Todo: React.FC = () => {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					<IonTitle>TodoList</IonTitle>
+					<IonButtons slot="start">
+						<IonMenuButton />
+					</IonButtons>
+					<IonTitle>To do List</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent>
