@@ -42,13 +42,13 @@ interface AppPage {
 const appPages: AppPage[] = [
 	{
 		title: "Todo",
-		url: "/",
+		url: "/todo",
 		iosIcon: listOutline,
 		mdIcon: listSharp,
 	},
 	{
-		title: "Rooms",
-		url: "/rooms",
+		title: "Collections",
+		url: "/collections",
 		iosIcon: bedOutline,
 		mdIcon: bedSharp,
 	},

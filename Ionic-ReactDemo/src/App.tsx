@@ -9,7 +9,7 @@ import { Redirect, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import Page from "./pages/Page";
 import Todo from "./pages/todo";
-import Room from "./pages/rooms";
+import Collections from "./pages/collections";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
@@ -28,6 +28,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import Detail from "./pages/detail";
 
 setupIonicReact();
 
@@ -39,13 +40,16 @@ const App: React.FC = () => {
 					<Menu />
 					<IonRouterOutlet id="main">
 						<Route path="/" exact={true}>
-							<Redirect to="/todo" />
+							<Redirect to="/collections" />
 						</Route>
 						<Route path="/todo" exact={true}>
 							<Todo></Todo>
 						</Route>
-						<Route path="/rooms" exact={true}>
-							<Room></Room>
+						<Route path="/collections" exact={true}>
+							<Collections></Collections>
+						</Route>
+						<Route path="/collections/:id">
+							<Detail></Detail>
 						</Route>
 						<Route path="/page/:name" exact={true}>
 							<Page />
