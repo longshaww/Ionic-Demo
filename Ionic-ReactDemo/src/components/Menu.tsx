@@ -29,6 +29,8 @@ import {
 	listSharp,
 	bedOutline,
 	bedSharp,
+	homeOutline,
+	homeSharp,
 } from "ionicons/icons";
 import "./Menu.css";
 
@@ -40,6 +42,12 @@ interface AppPage {
 }
 
 const appPages: AppPage[] = [
+	{
+		title: "Home",
+		url: "/",
+		iosIcon: homeOutline,
+		mdIcon: homeSharp,
+	},
 	{
 		title: "Todo",
 		url: "/todo",

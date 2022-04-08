@@ -5,7 +5,7 @@ import {
 	setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Menu from "./components/Menu";
 import Page from "./pages/Page";
 import Todo from "./pages/todo";
@@ -29,6 +29,7 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import Detail from "./pages/detail";
+import Home from "./pages/home";
 
 setupIonicReact();
 
@@ -39,21 +40,23 @@ const App: React.FC = () => {
 				<IonSplitPane contentId="main">
 					<Menu />
 					<IonRouterOutlet id="main">
-						<Route path="/" exact={true}>
-							<Redirect to="/collections" />
-						</Route>
-						<Route path="/todo" exact={true}>
-							<Todo></Todo>
-						</Route>
-						<Route path="/collections" exact={true}>
-							<Collections></Collections>
-						</Route>
-						<Route path="/collections/:id">
-							<Detail></Detail>
-						</Route>
-						<Route path="/page/:name" exact={true}>
-							<Page />
-						</Route>
+						<Switch>
+							<Route path="/" exact={true}>
+								<Home></Home>
+							</Route>
+							<Route path="/todo">
+								<Todo></Todo>
+							</Route>
+							<Route path="/collections">
+								<Collections></Collections>
+							</Route>
+							<Route path="/collections/:id">
+								<Detail></Detail>
+							</Route>
+							<Route path="/page/:name">
+								<Page />
+							</Route>
+						</Switch>
 					</IonRouterOutlet>
 				</IonSplitPane>
 			</IonReactRouter>
