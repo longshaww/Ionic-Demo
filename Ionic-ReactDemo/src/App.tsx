@@ -44,16 +44,16 @@ const App: React.FC = () => {
 							<Route path="/" exact={true}>
 								<Home></Home>
 							</Route>
-							<Route path="/todo">
+							<Route path="/todo" exact={true}>
 								<Todo></Todo>
 							</Route>
-							<Route path="/collections">
+							<Route path="/collections" exact={true}>
 								<Collections></Collections>
 							</Route>
 							<Route path="/collections/:id">
 								<Detail></Detail>
 							</Route>
-							<Route path="/page/:name">
+							<Route path="/page/:name" exact={true}>
 								<Page />
 							</Route>
 						</Switch>
